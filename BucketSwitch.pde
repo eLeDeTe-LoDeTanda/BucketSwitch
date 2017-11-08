@@ -163,7 +163,7 @@ void keyReleased()
 void saveSettings()
 {
   write = createWriter(sketchPath("BucketSwitch.settings"));
-  write.println("[JACK Settigs]");
+  write.println("[JACK Settings]");
   write.println(hz[nhz]+" hz");
   write.println(bit[nbit]+" bit");
   write.println(samples[nsamples]+" samples");
@@ -181,7 +181,7 @@ void loadSettings()
   int val;
   String lines[] = loadStrings(sketchPath("BucketSwitch.settings"));
   for (int i = 0; i < lines.length; i++) {
-    if (lines[i].contains("[JACK Settigs]")) {
+    if (lines[i].contains("[JACK Settings]")) {
       val = int(trim(lines[i+1].substring(0, lines[i+1].lastIndexOf("hz"))));
       for (int e = 0; e < hz.length; e++) {
         if (hz[e] == val) { 
